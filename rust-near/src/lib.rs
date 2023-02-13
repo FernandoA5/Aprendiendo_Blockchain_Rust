@@ -98,5 +98,17 @@ mod test{
 
         assert_eq!(-1, contract.get_num());
     }
+    #[test]
+    fn resetear(){
+        let context: VMContext = get_context(vec![], false);
+        testing_env!(context);
+
+        let mut contract: Contador = Contador{valor:0};
+        contract.resetear();
+
+        println!("Valor despues del incremento {}", contract.get_num());
+
+        assert_eq!(0, contract.get_num());
+    }
 }
 
